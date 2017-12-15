@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="springbootlearning.springbootlearning.dao.TommyBurgeonErrorRecordMapper">
+    <resultMap id="TommyBurgeonErrorRecordResult" type="springbootlearning.springbootlearning.model.TommyBurgeonErrorRecord">
+    </resultMap>
+
+    <!-- 用于select查询公用抽取的列 -->
+    <sql id="tommyBurgeonErrorRecordColumns">
+        <![CDATA[
+	        	id as id,
+	        	order_code as orderCode,
+	        	return_reason as returnReason,
+	        	return_code as returnCode,
+	        	create_time as createTime,
+	        	sales_type as salesType
+	    ]]>
+    </sql>
+
+    <select id="findListByQueryMap" resultMap="TommyBurgeonErrorRecordResult">
+        select <include refid="tommyBurgeonErrorRecordColumns" />
+        from tommy_burgeon_error_record
+    </select>
+</mapper>
